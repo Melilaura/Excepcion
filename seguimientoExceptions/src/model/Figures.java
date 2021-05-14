@@ -18,6 +18,30 @@ public abstract class Figures
 		this.app = app;
 	}
 	
-	public abstract void draw();
+	public abstract void draw(PApplet app);
+	
+	public int getR() {
+		return r;
+	}
+	
+	public void setR(int r) {
+		this.r = r;
+	}
+	
+	public int getB() {
+		return b;
+	}
+	
+	public void setB(int b) {
+		this.b = b;
+	}
+	
+	public int getG() {
+		return g;
+	}
+	
+	public void setG(int g) {
+		this.g = g;
+	}
 
 }

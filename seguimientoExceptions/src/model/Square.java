@@ -11,12 +11,14 @@ public class Square extends Figures
 	}
 
 	@Override
-	public void draw() 
+	public void draw(PApplet app) 
 	{
 		app.rectMode(app.CENTER);
 		app.fill(r, g, b);
 		app.noStroke();
 		app.square(posX, posY, size);
 	}
+	
+	
 
 }

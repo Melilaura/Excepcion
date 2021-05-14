@@ -11,7 +11,7 @@ public class Circle extends Figures
 	}
 
 	@Override
-	public void draw() 
+	public void draw(PApplet app) 
 	{
 		app.fill(r, g, b);
 		app.noStroke();
