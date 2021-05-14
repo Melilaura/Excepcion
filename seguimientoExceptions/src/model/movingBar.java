@@ -9,7 +9,7 @@ public class movingBar
 
 	public movingBar(int barX, int barY, int knobX, int knobY, PApplet app) 
 	{
-		this.barSizeX = 400;
+		this.barSizeX = 255;
 		this.barSizeY = 15;
 		this.knobSizeX = 15;
 		this.knobSizeY = 40;
@@ -22,10 +22,10 @@ public class movingBar
 	
 	public void moveKnobs(PApplet app)
 	{
-		if(app.mouseX == knobX)
+		/*if(app.mouseX == knobX)
 		{
 			knobX = app.mouseX;
-		}
+		}*/
 	}
 	
 	public int getKnobX() {

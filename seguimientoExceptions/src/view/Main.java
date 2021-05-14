@@ -1,4 +1,5 @@
 package view;
+import controller.Controller;
 import processing.core.PApplet;
 
 public class Main extends PApplet
@@ -15,10 +16,15 @@ public class Main extends PApplet
 		size(500, 500);
 	}
 	
+	Controller controls;
+	boolean squareSelected, circleSelected;
+	
 	@Override
 	public void setup() //void Start
 	{
-		
+		controls = new Controller(this);
+		squareSelected = false;
+		circleSelected = false;
 	}
 	
 	@Override
@@ -26,20 +32,35 @@ public class Main extends PApplet
 	{		
 		System.out.println(mouseX + ", " + mouseY);
 		background(0);
-		
 		rectMode(CENTER);
+		fill(255);
+		
+		controls.drawFigures();
+		controls.drawBars();
+		
+		/*rectMode(CENTER);
 		stroke(255, 207, 249);
 		strokeWeight(3);
 		fill(255);
 		square(135, 148, 150);
 		circle(500-135, 148, 150);
 		
-		rect(250, 270, 400, 15);
+		rect(250, 270, 255, 15);
 		rect(250, 270, 15, 40);
-		rect(250, 330, 400, 15);
+		rect(250, 330, 255, 15);
 		rect(250, 330, 15, 40);
-		rect(250, 390, 400, 15);
-		rect(250, 390, 15, 40);
+		rect(250, 390, 255, 15);
+		rect(250, 390, 15, 40);*/
+	}
+	
+	public void mouseDragged()
+	{
+		
+	}
+	
+	public void mousePressed()
+	{
+		
 	}
 
 }
