@@ -19,9 +19,14 @@ public class Controller
 		logic.drawBars(app);
 	}
 	
-	public void drawFigures(PApplet app)
+	public void drawSquare(PApplet app)
 	{
-		logic.drawFigures(app);
+		logic.drawSquare(app);
+	}
+	
+	public void drawCircle(PApplet app)
+	{
+		logic.drawCircle(app);
 	}
 	
 	public void changeSquareColors()

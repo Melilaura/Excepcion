@@ -15,7 +15,7 @@ public class Logic
 	{
 		this.app = app;
 		squ = new Square(105, 148, 100, app);
-		circ = new Circle(500-105, 148, 100, app);
+		circ = new Circle(395, 148, 100, app);
 		movBarR = new movingBar(250, 270, 250, 270, app);
 		movBarG = new movingBar(330, 270, 330, 270, app);
 		movBarB = new movingBar(390, 270, 390, 270, app);
@@ -31,12 +31,14 @@ public class Logic
 		movBarB.moveKnobs(app);
 	}
 	
-	public void drawFigures(PApplet app)
+	public void drawSquare(PApplet app)
 	{
 		squ.draw(app);
+	}
+	
+	public void drawCircle(PApplet app)
+	{
 		circ.draw(app);
-		
-		//System.out.println(squ.posX);
 	}
 	
 	public void changeSquareColor()
