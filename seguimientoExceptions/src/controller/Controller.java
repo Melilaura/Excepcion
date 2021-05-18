@@ -14,7 +14,7 @@ public class Controller
 		logic = new Logic(app);
 	}
 	
-	public void drawBars()
+	public void drawBars(PApplet app)
 	{
 		logic.drawBars(app);
 	}

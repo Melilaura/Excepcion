@@ -35,8 +35,8 @@ public class Main extends PApplet
 		rectMode(CENTER);
 		fill(255);
 		
-		controls.drawFigures();
-		controls.drawBars();
+		controls.drawFigures(this);
+		controls.drawBars(this);
 		
 		/*rectMode(CENTER);
 		stroke(255, 207, 249);

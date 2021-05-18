@@ -22,10 +22,25 @@ public class movingBar
 	
 	public void moveKnobs(PApplet app)
 	{
-		/*if(app.mouseX == knobX)
+	       if(app.mouseX == knobX)
 		{
 			knobX = app.mouseX;
-		}*/
+		}
+	}
+	
+	public void drawKnobs(PApplet app)
+	{
+		
+		//app.fill(0);
+		
+		app.rect(250, 270, barSizeX, barSizeY );
+		app.rect(250, 270, knobSizeX, knobSizeY);
+		
+		app.rect(250, 330, barSizeX, barSizeY );
+		app.rect(250, 330, knobSizeX, knobSizeY);
+		
+		app.rect(250, 390, barSizeX, barSizeY );
+		app.rect(250, 390, knobSizeX, knobSizeY);
 	}
 	
 	public int getKnobX() {
