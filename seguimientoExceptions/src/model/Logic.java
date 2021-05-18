@@ -7,7 +7,7 @@ public class Logic
 	Square squ;
 	Circle circ;
 	PApplet app;
-	movingBar movBarR, movBarG, movBarB;
+	movingBar movBarR, movBarG, movBarB,drawBar;
 	int rSquare, gSquare, bSquare;
 	int rCircle, gCircle, bCircle;
 
@@ -19,12 +19,13 @@ public class Logic
 		movBarR = new movingBar(250, 270, 250, 270, app);
 		movBarG = new movingBar(330, 270, 330, 270, app);
 		movBarB = new movingBar(390, 270, 390, 270, app);
+		drawBar = new movingBar(255, 270, 255, 15, app);
 	}
 	
 	public void drawBars(PApplet app)
 	{
-		this.app = app;
-		
+		//this.app = app;
+		drawBar.drawKnobs(app);
 		movBarR.moveKnobs(app);
 		movBarG.moveKnobs(app);
 		movBarB.moveKnobs(app);
@@ -35,7 +36,7 @@ public class Logic
 		squ.draw(app);
 		circ.draw(app);
 		
-		System.out.println(squ.posX);
+		//System.out.println(squ.posX);
 	}
 	
 	public void changeSquareColor()
@@ -99,4 +100,30 @@ public class Logic
 	public void setbCircle(int bCircle) {
 		this.bCircle = bCircle;
 	}
+
+	public movingBar getMovBarR() {
+		return movBarR;
+	}
+
+	public void setMovBarR(movingBar movBarR) {
+		this.movBarR = movBarR;
+	}
+
+	public movingBar getMovBarG() {
+		return movBarG;
+	}
+
+	public void setMovBarG(movingBar movBarG) {
+		this.movBarG = movBarG;
+	}
+
+	public movingBar getMovBarB() {
+		return movBarB;
+	}
+
+	public void setMovBarB(movingBar movBarB) {
+		this.movBarB = movBarB;
+	}
+	
+	
 }

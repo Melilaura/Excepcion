@@ -19,24 +19,34 @@ public class Main extends PApplet
 	Controller controls;
 	boolean squareSelected, circleSelected;
 	
+	int knobRX, knobGX, knobBX;
+	
 	@Override
 	public void setup() //void Start
 	{
 		controls = new Controller(this);
 		squareSelected = false;
 		circleSelected = false;
+		
+		knobRX = 250;
+		knobGX = 250;
+		knobBX = 250;
 	}
 	
 	@Override
 	public void draw() //void Update
 	{		
-		System.out.println(mouseX + ", " + mouseY);
+		//System.out.println(mouseX + ", " + mouseY);
 		background(0);
 		rectMode(CENTER);
 		fill(255);
 		
-		controls.drawFigures();
-		controls.drawBars();
+		controls.drawFigures(this);
+		controls.drawBars(this);
+		
+		rect(knobRX, 270, 15, 40);
+		rect(knobGX, 330, 15, 40);
+		rect(knobBX, 390, 15, 40);
 		
 		/*rectMode(CENTER);
 		stroke(255, 207, 249);
@@ -55,7 +65,20 @@ public class Main extends PApplet
 	
 	public void mouseDragged()
 	{
+		if(dist(mouseX, mouseY, knobRX, 270) < 20)
+		{			
+			knobRX = mouseX;
+		}
 		
+		if(dist(mouseX, mouseY, knobBX, 390) < 20)
+		{			
+			knobBX = mouseX;
+		}
+		
+		if(dist(mouseX, mouseY, knobGX, 330) < 20)
+		{			
+			knobGX = mouseX;
+		}
 	}
 	
 	public void mousePressed()

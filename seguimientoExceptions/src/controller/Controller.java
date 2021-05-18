@@ -14,7 +14,7 @@ public class Controller
 		logic = new Logic(app);
 	}
 	
-	public void drawBars()
+	public void drawBars(PApplet app)
 	{
 		logic.drawBars(app);
 	}
@@ -36,6 +36,14 @@ public class Controller
 		logic.changeCircColor();
 		
 		app.fill(logic.getrCircle(), logic.getgCircle(), logic.getbCircle());
+	}
+	
+	public Logic getLogic() {
+		return logic;
+	}
+	
+	public void setLogic(Logic logic) {
+		this.logic = logic;
 	}
 
 }
