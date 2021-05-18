@@ -42,10 +42,10 @@ public class Main extends PApplet
 		background(0);
 		rectMode(CENTER);
 		
-		colorer();
-		
 		stroke(255);
 		strokeWeight(2);
+		
+		colorer();
 		
 		fill(rectR, rectG, rectB);
 		controls.drawSquare(this);

@@ -13,7 +13,6 @@ public class Circle extends Figures
 	@Override
 	public void draw(PApplet app) 
 	{
-		app.noStroke();
 		app.circle(posX, posY, size);
 	}
 

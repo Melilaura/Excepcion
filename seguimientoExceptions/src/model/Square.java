@@ -13,7 +13,6 @@ public class Square extends Figures
 	@Override
 	public void draw(PApplet app) 
 	{
-		app.noStroke();
 		app.square(posX, posY, size);
 	}
 	
