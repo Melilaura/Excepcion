@@ -23,7 +23,7 @@ public class Main extends PApplet
 	int rectR, rectG, rectB;
 	int circR, circG, circB;
 
-	boolean areTheSame;
+	boolean areTheSame, hasBeenCompared;
 	
 	@Override
 	public void setup() //void Start
@@ -76,14 +76,14 @@ public class Main extends PApplet
 		
 		limitKnobs();
 		
-		if(areTheSame)
+		if(areTheSame && hasBeenCompared)
 		{
 			textAlign(CENTER);
 			fill(0, 255, 0);
 			text("They are the same", 250, 20);
 		}
 		
-		else if(!areTheSame)
+		else if(!areTheSame && hasBeenCompared)
 		{
 			textAlign(CENTER);
 			fill(255, 0, 0);
@@ -109,34 +109,74 @@ public class Main extends PApplet
 	
 	public void limitKnobs()
 	{
-		if(knobRX > 380)
+		try
 		{
-			knobRX = 380;
+			if(knobRX > 380)
+			{
+				throw new Exception("Upper limit for knob R reached");
+			}
+			
+			if(knobRX < 120)
+			{
+				throw new Exception("Lower limit for knob R reached");
+			}
+			
+			if(knobGX > 380)
+			{
+				throw new Exception("Upper limit for knob G reached");
+			}
+			
+			if(knobGX < 120)
+			{
+				throw new Exception("Lower limit for knob G reached");
+			}
+			
+			if(knobBX > 380)
+			{
+				throw new Exception("Upper limit for knob B reached");
+			}
+			
+			if(knobBX < 120)
+			{
+				throw new Exception("Lower limit for knob B reached");
+			}
+			
 		}
 		
-		if(knobRX < 120)
+		catch(Exception limitReached)
 		{
-			knobRX = 120;
-		}
-		
-		if(knobGX > 380)
-		{
-			knobGX = 380;
-		}
-		
-		if(knobGX < 120)
-		{
-			knobGX = 120;
-		}
-		
-		if(knobBX > 380)
-		{
-			knobBX = 380;
-		}
-		
-		if(knobBX < 120)
-		{
-			knobBX = 120;
+			System.out.println(limitReached.getMessage());
+			
+			if(knobRX > 380)
+			{
+				knobRX = 380;
+			}
+			
+			if(knobRX < 120)
+			{
+				knobRX = 120;
+			}
+			
+			if(knobGX > 380)
+			{
+				knobGX = 380;
+			}
+			
+			if(knobGX < 120)
+			{
+				knobGX = 120;
+			}
+			
+			if(knobBX > 380)
+			{
+				knobBX = 380;
+			}
+			
+			if(knobBX < 120)
+			{
+				knobBX = 120;
+			}
+			
 		}
 	}
 	
@@ -196,11 +236,13 @@ public class Main extends PApplet
 		
 		if(mouseX > 289 && mouseY > 438 && mouseX < 461 && mouseY < 481)
 		{
+			hasBeenCompared = false;
 			clearButton();
 		}
 		
 		if(mouseX > 40 && mouseY > 437 && mouseX < 211 && mouseY < 479)
 		{
+			hasBeenCompared = true;
 			compareButton();
 		}
 	}
