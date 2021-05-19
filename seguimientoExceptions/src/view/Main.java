@@ -22,6 +22,8 @@ public class Main extends PApplet
 	int knobRX, knobGX, knobBX;
 	int rectR, rectG, rectB;
 	int circR, circG, circB;
+
+	boolean areTheSame;
 	
 	@Override
 	public void setup() //void Start
@@ -38,7 +40,7 @@ public class Main extends PApplet
 	@Override
 	public void draw() //void Update
 	{		
-		System.out.println(mouseX + ", " + mouseY);
+		//System.out.println(mouseX + ", " + mouseY);
 		background(0);
 		rectMode(CENTER);
 		
@@ -68,10 +70,25 @@ public class Main extends PApplet
 		fill(0);
 		
 		textSize(15);
+		textAlign(LEFT);
 		text("Compare", 90, 465);
 		text("Clear", 355, 465);
 		
 		limitKnobs();
+		
+		if(areTheSame)
+		{
+			textAlign(CENTER);
+			fill(0, 255, 0);
+			text("They are the same", 250, 20);
+		}
+		
+		else if(!areTheSame)
+		{
+			textAlign(CENTER);
+			fill(255, 0, 0);
+			text("They are different", 250, 20);
+		}
 
 		//System.out.println(squareSelected + " " + circleSelected);
 		
@@ -97,9 +114,9 @@ public class Main extends PApplet
 			knobRX = 380;
 		}
 		
-		if(knobRX < 125)
+		if(knobRX < 120)
 		{
-			knobRX = 125;
+			knobRX = 120;
 		}
 		
 		if(knobGX > 380)
@@ -107,9 +124,9 @@ public class Main extends PApplet
 			knobGX = 380;
 		}
 		
-		if(knobGX < 125)
+		if(knobGX < 120)
 		{
-			knobGX = 125;
+			knobGX = 120;
 		}
 		
 		if(knobBX > 380)
@@ -117,9 +134,9 @@ public class Main extends PApplet
 			knobBX = 380;
 		}
 		
-		if(knobBX < 125)
+		if(knobBX < 120)
 		{
-			knobBX = 125;
+			knobBX = 120;
 		}
 	}
 	
@@ -181,6 +198,11 @@ public class Main extends PApplet
 		{
 			clearButton();
 		}
+		
+		if(mouseX > 40 && mouseY > 437 && mouseX < 211 && mouseY < 479)
+		{
+			compareButton();
+		}
 	}
 	
 	public void clearButton()
@@ -195,6 +217,66 @@ public class Main extends PApplet
 		
 		squareSelected = false;
 		circleSelected = false;
+	}
+	
+	public void compareButton()
+	{	
+		try
+		{
+			if(rectR == circR && rectB == circB && rectG == circG)
+			{
+				areTheSame = true;
+			}
+			
+			if(rectR != circR && rectB == circB && rectG == circG)
+			{
+				throw new Exception("The R values are different");
+			}
+			
+			if(rectR == circR && rectB != circB && rectG == circG)
+			{
+				throw new Exception("The B values are different");
+			}
+			
+			if(rectR == circR && rectB == circB && rectG != circG)
+			{
+				throw new Exception("The G values are different");
+			}
+			
+			if(rectR == circR && rectB != circB && rectG != circG)
+			{
+				throw new Exception("The G and B values are different");
+			}
+			
+			if(rectR != circR && rectB != circB && rectG == circG)
+			{
+				throw new Exception("The R and B values are different");
+			}
+			
+			if(rectR != circR && rectB == circB && rectG != circG)
+			{
+				throw new Exception("The R and G values are different");
+			}
+			
+			if(rectR != circR && rectB != circB && rectG != circG)
+			{
+				throw new Exception("All the values are different");
+			}
+			
+			//else
+			//{
+			//	textAlign(CENTER);
+			//	fill(255, 0, 0);
+			//	text("They are different", 250, 20);
+			//}
+		}
+		
+		catch(Exception e)
+		{	
+			areTheSame = false;
+			System.out.println(e.getMessage());
+		}
+
 	}
 
 }

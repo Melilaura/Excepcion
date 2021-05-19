@@ -30,17 +30,17 @@ public class movingBar
 	
 	public void drawKnobs(PApplet app)
 	{
+		try 
+		{
+			app.rect(250, 270, barSizeX, barSizeY );	
+			app.rect(250, 330, barSizeX, barSizeY );
+			app.rect(250, 390, barSizeX, barSizeY );
+		}
 		
-		//app.fill(0);
-		
-		app.rect(250, 270, barSizeX, barSizeY );
-		//app.rect(knobX, knobY, knobSizeX, knobSizeY);
-		
-		app.rect(250, 330, barSizeX, barSizeY );
-		//app.rect(250, 330, knobSizeX, knobSizeY);
-		
-		app.rect(250, 390, barSizeX, barSizeY );
-		//app.rect(250, 390, knobSizeX, knobSizeY);
+		catch(NullPointerException variableNotFound)
+		{
+			System.out.println("One or more variables not found");
+		}
 	}
 	
 	public int getKnobX() {
