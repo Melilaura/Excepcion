@@ -268,6 +268,9 @@ public class Main extends PApplet
 			if(rectR == circR && rectB == circB && rectG == circG)
 			{
 				areTheSame = true;
+				
+				System.out.println(" RSQ: " + rectR + " GSQ: " + rectG + " BSQ: " + rectB + "\n" +
+						" RCR: " + circR + " GCR: " + circG + " BCR: " + circB);
 			}
 			
 			if(rectR != circR && rectB == circB && rectG == circG)
@@ -316,7 +319,9 @@ public class Main extends PApplet
 		catch(Exception e)
 		{	
 			areTheSame = false;
-			System.out.println(e.getMessage());
+			System.out.println(e.getMessage() + "\n"
+			+ " RSQ: " + rectR + " GSQ: " + rectG + " BSQ: " + rectB + "\n" +
+			" RCR: " + circR + " GCR: " + circG + " BCR: " + circB);
 		}
 
 	}
