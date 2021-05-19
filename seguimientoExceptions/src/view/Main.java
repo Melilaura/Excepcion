@@ -38,7 +38,7 @@ public class Main extends PApplet
 	@Override
 	public void draw() //void Update
 	{		
-		//System.out.println(mouseX + ", " + mouseY);
+		System.out.println(mouseX + ", " + mouseY);
 		background(0);
 		rectMode(CENTER);
 		
@@ -53,17 +53,27 @@ public class Main extends PApplet
 		fill(circR, circG, circB);
 		controls.drawCircle(this);
 		
+		fill(0);
 		controls.drawBars(this);
-		fill(255);
-		
+	
 		rect(knobRX, 270, 15, 40);
 		rect(knobGX, 330, 15, 40);
 		rect(knobBX, 390, 15, 40);
 		
-		limitKnobs();
+		fill(255);
 		
-		//System.out.println(mouseX + ", " + mouseY);
-		System.out.println(squareSelected + " " + circleSelected);
+		rect(125, 460, 170, 40);
+		rect(375, 460, 170, 40);
+		
+		fill(0);
+		
+		textSize(15);
+		text("Compare", 90, 465);
+		text("Clear", 355, 465);
+		
+		limitKnobs();
+
+		//System.out.println(squareSelected + " " + circleSelected);
 		
 		/*rectMode(CENTER);
 		stroke(255, 207, 249);
@@ -150,17 +160,41 @@ public class Main extends PApplet
 	
 	public void mousePressed()
 	{
+		interactAreas();
+	}
+	
+	public void interactAreas()
+	{
 		if(mouseX > 54 && mouseX < 154 && mouseY > 98 && mouseY < 198)
 		{
 			squareSelected = true;
 			circleSelected = false;
 		}
 		
-		if(dist(mouseX, mouseY, 395, 198) < 100)
+		if(dist(mouseX, mouseY, 395, 198) < 50)
 		{
 			squareSelected = false;
 			circleSelected = true;
 		}
+		
+		if(mouseX > 289 && mouseY > 438 && mouseX < 461 && mouseY < 481)
+		{
+			clearButton();
+		}
+	}
+	
+	public void clearButton()
+	{
+		rectR = 0;
+		rectB = 0;
+		rectG = 0;
+		
+		circR = 0;
+		circB = 0;
+		circG = 0;
+		
+		squareSelected = false;
+		circleSelected = false;
 	}
 
 }

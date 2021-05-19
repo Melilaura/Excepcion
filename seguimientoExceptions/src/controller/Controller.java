@@ -31,15 +31,11 @@ public class Controller
 	
 	public void changeSquareColors()
 	{
-		logic.changeSquareColor();
-		
 		app.fill(logic.getrSquare(), logic.getbSquare(), logic.getgSquare());
 	}
 	
 	public void changeCircleColors()
 	{
-		logic.changeCircColor();
-		
 		app.fill(logic.getrCircle(), logic.getgCircle(), logic.getbCircle());
 	}
 	
